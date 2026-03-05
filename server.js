@@ -1,10 +1,6 @@
 const { Server } = require("socket.io");
-const io = new Server(3012, {
-  cors: {
-    origin: ["https://telegraph.com.pr", "https://telegraph.share.zrok.io"],
-    methods: ["GET", "POST"]
-  }
-});
+const io = new Server(3012);
+
 const morseMap = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
     'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',

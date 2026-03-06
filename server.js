@@ -11,12 +11,10 @@ io.on("connection", (socket) => {
             rooms.forEach(room => {
                 if (room) socket.join(room.toString());
             });
-            console.log(`Socket ${socket.id} synced to: ${rooms.join(", ")}`);
         }
     });
 
     socket.on("send-message", ({ requestId, content }) => {
-        // Dumb router: Just passes the raw content (encrypted or not)
         io.to(requestId).emit("morse-delivery", { 
             roomId: requestId, 
             content: content 
